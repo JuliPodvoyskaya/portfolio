@@ -1,0 +1,1365 @@
+/*@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url(assets/fonts/Montserrat-Thin.otf) format("otf");
+}*/
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin button-orange {
+  border: solid 1px $secondary-color-3;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  border-radius: 37px;
+  cursor: pointer;
+}
+
+@mixin h2 {
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0.2px;
+  margin: 0 auto;
+}
+
+@mixin p {
+  max-width: 430px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+
+  color: $second-text-color;
+  margin: 0 auto;
+}
+
+@mixin input {
+  width: 286px;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 1px $gray;
+  background-color: #f9f9f9;
+  padding-left: 21px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: inline;
+  @include text(14px, 24px, 0.2px);
+  font-weight: 700;
+
+  color: $textColor;
+}
+
+@mixin text($size, $lineHeight, $letterSpacing) {
+  font-size: $size;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin listItem {
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  display: none;
+  width: 100%;
+  border: solid 1px $gray;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@mixin form {
+  width: 286px;
+  height: 54px;
+  border-radius: 5px;
+  border: solid 1px $gray;
+  background-color: #f9f9f9;
+  align-items: center;
+  padding-left: 21px;
+}
+
+$fonGray: #fafafa;
+$textColor: #252b42;
+$second-text-color: #737373;
+$secondary-color-3: #dbb468;
+$light-text-color: #ffffff;
+$primaryColor: #d0a144;
+$gray: #bdbdbd;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Martel", serif;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: "Martel", serif;
+  font-weight: 700;
+}
+
+//Блок header
+
+header {
+  @include flex-column;
+  background-color: $fonGray;
+
+  .container-menu {
+    max-width: 1100px;
+    width: 100%;
+    @include flex-row;
+
+    .label {
+      padding-top: 23px;
+      color: $textColor;
+
+      h3 {
+        font-family: "Martel", serif;
+        font-weight: 700;
+        @include text(24px, 32px, 0.1px);
+      }
+    }
+
+    .right-menu {
+      @include flex-row;
+      padding-top: 40px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 18px;
+      padding-left: 42px;
+
+      .left img {
+        padding-right: 16px;
+      }
+    }
+    .right {
+      display: none;
+    }
+  }
+
+  .hidden-menu {
+    display: none;
+  }
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  list-style: none;
+
+  li a {
+    text-decoration: none;
+    padding-right: 20px;
+
+    color: $second-text-color;
+    @include text(14px, 24px, 0.2px);
+    font-weight: 600;
+  }
+}
+
+.content-header {
+  max-width: 750px;
+  padding-top: 160px;
+  padding-left: 25px;
+  padding-right: 25px;
+  @include flex-column;
+
+  h1 {
+    color: $textColor;
+    @include text(58px, 65px, 0.2px);
+    font-weight: 900;
+    text-align: center;
+    font-family: "Martel", serif;
+    margin: 0;
+  }
+
+  .gray-text p {
+    max-width: 550px;
+    width: 100%;
+    @include text(20px, 30px, 0.2px);
+    text-align: center;
+    color: $second-text-color;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+  }
+
+  .buttons {
+    padding-bottom: 150px;
+    padding-top: 40px;
+    max-width: 350px;
+    width: 100%;
+    @include flex-row;
+
+    .left {
+      width: 182px;
+      height: 48px;
+      @include button-orange;
+      background-color: $secondary-color-3;
+      color: $light-text-color;
+    }
+
+    .right {
+      width: 152px;
+      height: 48px;
+      @include button-orange;
+      background-color: #fafafa;
+      color: $secondary-color-3;
+    }
+  }
+}
+
+// Блок первая белая секция
+
+.white-block {
+  width: 100%;
+  @include flex-column;
+
+  .container-white {
+    max-width: 1100px;
+    width: 100%;
+    @include flex-column;
+    padding-bottom: 107px;
+
+    h2 {
+      @include h2;
+      padding-top: 145px;
+      font-family: "Martel", serif;
+    }
+
+    p {
+      @include p;
+      padding-top: 10px;
+
+      font-weight: 400;
+    }
+
+    .container-blocks {
+      max-width: 1100px;
+      width: 100%;
+      @include flex-row;
+      flex-wrap: wrap;
+      padding-top: 45px;
+
+      .block {
+        width: 328px;
+
+        border: solid 1px #e8e8e8;
+        margin-bottom: 30px;
+        padding-bottom: 35px;
+        padding-top: 34px;
+
+        .top {
+          display: flex;
+          justify-content: flex-start;
+          padding-top: 34px;
+          padding-left: 42px;
+
+          img {
+            padding-right: 20px;
+          }
+
+          h5 {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.1px;
+          }
+        }
+        p {
+          width: 230px;
+
+          text-align: justify;
+          @include text(14px, 20px, 0.2px);
+        }
+      }
+    }
+  }
+}
+
+// вторая серо-синяя секция
+
+.gray-one {
+  width: 100%;
+
+  .container-gray-one {
+    width: 100%;
+    height: 409px;
+    background-color: $fonGray;
+    @include flex-column;
+    .who {
+      max-width: 960px;
+      width: 100%;
+      @include flex-column;
+      padding-top: 80px;
+
+      h2 {
+        @include h2;
+      }
+
+      p {
+        @include p;
+        padding-top: 10px;
+        padding-bottom: 50px;
+
+        font-weight: 400;
+      }
+
+      .video-container {
+        @include flex-column;
+        position: relative;
+
+        video {
+          width: 877px;
+          height: 442px;
+          @include flex-column;
+        }
+
+        .play-stop {
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          background-color: $textColor;
+          border: $textColor;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .play-stop img {
+          max-width: 40%;
+          max-height: 40%;
+        }
+      }
+    }
+  }
+
+  .blue-block {
+    width: 100%;
+    height: 370px;
+    background-color: $textColor;
+  }
+}
+
+///Вторая серая секция
+
+.review-name {
+  width: 327px;
+
+  border: solid 1px #dedede;
+  background-color: $light-text-color;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 31px 31px;
+
+  .bottom-block {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 35px;
+    padding-bottom: 30px;
+
+    p {
+      margin: 0 auto;
+    }
+
+    .designer .name {
+      color: $primaryColor;
+      @include text(14px, 24px, 0.2px);
+      font-weight: 600;
+      padding-left: 15px;
+    }
+
+    .designer .profession {
+      color: $textColor;
+      @include text(14px, 24px, 0.2px);
+      font-weight: 700;
+      padding-left: 15px;
+    }
+  }
+  .stars {
+    padding-left: 35px;
+    padding-top: 30px;
+  }
+
+  p {
+    width: 227px;
+    padding-left: 35px;
+
+    @include text(14px, 24px, 0.2px);
+    font-weight: 700;
+  }
+}
+
+.gray-two {
+  width: 100%;
+  background-color: $fonGray;
+  @include flex-column;
+  padding-bottom: 87px;
+
+  .reviews {
+    @include flex-column;
+    max-width: 1200px;
+    width: 100%;
+
+    h2 {
+      @include h2;
+      margin: 0;
+      padding: 0;
+      padding-top: 80px;
+    }
+
+    p {
+      @include p;
+      padding-top: 10px;
+      padding-bottom: 80px;
+
+      font-weight: 400;
+    }
+  }
+
+  .reviews-block {
+    @include flex-row;
+  }
+}
+
+//Вторая белая секция
+
+.white-block-two {
+  width: 100%;
+  @include flex-column;
+  padding-top: 80px;
+
+  h2 {
+    @include h2;
+    padding-bottom: 10px;
+  }
+
+  p {
+    @include p;
+  }
+
+  .attorneys {
+    @include flex-row;
+    max-width: 1100px;
+    width: 100%;
+    padding-bottom: 99px;
+
+    .block-attorney {
+      margin-top: 80px;
+      width: 328px;
+
+      padding-bottom: 32px;
+      border: solid 1px #eeeeee;
+      @include flex-column;
+      padding-bottom: 10px;
+
+      .name-attorney {
+        @include text(16px, 24px, 0.1px);
+        font-weight: 700;
+        color: $textColor;
+        padding-top: 30px;
+        padding-bottom: 5px;
+        margin: 0 auto;
+      }
+
+      .specialization {
+        @include text(16px, 24px, 0.2px);
+
+        margin: 0 auto;
+      }
+
+      .social-networks {
+        @include flex-row;
+        padding-top: 10px;
+        max-width: 92px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+//секция с формой ос
+
+.form {
+  width: 100%;
+  @include flex-column;
+  padding-top: 90px;
+
+  .bottom-form {
+    max-width: 1100px;
+    width: 100%;
+    @include flex-row;
+
+    .left {
+      max-width: 497px;
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      h3 {
+        @include text(24px, 32px, 0.1px);
+        margin: 0 auto;
+        font-family: "Martel", serif;
+      }
+
+      p {
+        margin: 0 auto;
+        @include text(14px, 20px, 0.2px);
+
+        color: $second-text-color;
+        margin-top: 10px;
+      }
+    }
+
+    .right {
+      padding-top: 58px;
+
+      .orange {
+        width: 158px;
+        height: 58px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background-color: $secondary-color-3;
+        border: $secondary-color-3;
+        color: $light-text-color;
+        @include text(14px, 28px, 0.2px);
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  .container-form {
+    width: 100%;
+    height: auto;
+    background-image: url("assets/img/fon.svg");
+    @include flex-column;
+
+    .feedback {
+      max-width: 1100px;
+      width: 100%;
+      padding-top: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h5 {
+        width: 100%;
+        @include text(16px, 24px, 0.1px);
+        font-weight: 700;
+        color: $textColor;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      h2 {
+        width: 100%;
+        @include text(40px, 50px, 0.2px);
+        font-weight: 700;
+        color: $textColor;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+form {
+  padding-top: 40px;
+  .form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 700px;
+
+    .name {
+      @include input;
+
+      ::placeholder {
+        @include text(14px, 24px, 0.2px);
+        font-weight: 700;
+
+        color: $gray;
+      }
+    }
+
+    .email {
+      @include input;
+    }
+
+    input::placeholder {
+      @include text(14px, 24px, 0.2px);
+      font-weight: 700;
+
+      color: $gray;
+    }
+
+    input:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+  }
+}
+
+div .btn-form {
+  @include form;
+  @include flex-row;
+
+  .choose {
+    @include text(14px, 24px, 0.2px);
+    font-weight: 700;
+
+    color: $gray;
+  }
+
+  span img {
+    padding-right: 21px;
+  }
+}
+
+div .btn-form1 {
+  @include form;
+  @include flex-row;
+  margin-left: 15px;
+
+  .choose {
+    @include text(14px, 24px, 0.2px);
+    font-weight: 700;
+
+    color: $gray;
+  }
+
+  span img {
+    padding-right: 21px;
+  }
+}
+
+div {
+  @include text(14px, 24px, 0.2px);
+  font-weight: 600;
+
+  color: $textColor;
+
+  .lists {
+    @include listItem;
+    cursor: pointer;
+
+    li {
+      list-style: none;
+      @include text(14px, 24px, 0.2px);
+      font-weight: 600;
+
+      color: $gray;
+    }
+
+    li:hover {
+      background-color: $textColor;
+      width: 28%;
+    }
+  }
+}
+
+div {
+  @include text(14px, 24px, 0.2px);
+  font-weight: 600;
+
+  color: $textColor;
+
+  .lists-1 {
+    @include listItem;
+    margin-left: 15px;
+
+    li {
+      list-style: none;
+      @include text(14px, 24px, 0.2px);
+      font-weight: 600;
+
+      color: $gray;
+    }
+    li:hover {
+      background-color: $textColor;
+      width: 28%;
+    }
+  }
+}
+
+textarea {
+  min-width: 588px;
+  max-width: 588px;
+  max-height: 140px;
+  min-height: 140px;
+  border-radius: 5px;
+  border: solid 1px $gray;
+  background-color: #f9f9f9;
+  padding-left: 21px;
+  padding-top: 11px;
+  @include text(14px, 24px, 0.2px);
+  font-weight: 700;
+
+  color: $textColor;
+  resize: none;
+  margin-top: 15px;
+}
+
+textarea:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+textarea::placeholder {
+  @include text(14px, 24px, 0.2px);
+  font-weight: 700;
+
+  color: $gray;
+}
+
+.button-form {
+  width: 215px;
+  height: 58px;
+  background-color: $secondary-color-3;
+  color: $light-text-color;
+  @include text(14px, 28px, 0.2px);
+  font-weight: 700;
+  border: solid 1px $secondary-color-3;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 114px;
+  cursor: pointer;
+}
+
+//финальная синяя секция
+
+.blue-block-two {
+  width: 100%;
+  background-color: $textColor;
+  @include flex-column;
+  padding-top: 35px;
+
+  .hr {
+    max-width: 1100px;
+    width: 100%;
+
+    hr {
+      border: solid 1px #364067;
+    }
+  }
+
+  .container-top {
+    max-width: 1100px;
+    width: 100%;
+    @include flex-row;
+    padding-bottom: 30px;
+
+    h3 {
+      font-weight: 700;
+      @include text(24px, 32px, 0.1px);
+      color: $light-text-color;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+
+      li {
+        list-style: none;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  .container-bottom {
+    max-width: 1100px;
+    width: 100%;
+    @include flex-row;
+    padding-top: 40px;
+    padding-bottom: 70px;
+
+    .block-info {
+      max-width: 200px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h5 {
+        @include text(16px, 24px, 0.1px);
+        font-family: "Martel", serif;
+        font-weight: 700;
+        color: $light-text-color;
+        text-align: left;
+      }
+
+      .links {
+        padding-top: 7px;
+        p a {
+          text-decoration: none;
+          @include text(14px, 24px, 0.2px);
+          font-weight: 600;
+
+          color: $gray;
+          margin: 0 auto;
+          padding: 0 auto;
+        }
+      }
+    }
+
+    .block-query {
+      h5 {
+        @include text(16px, 24px, 0.1px);
+        font-family: "Martel", serif;
+        font-weight: 700;
+        color: $light-text-color;
+        text-align: left;
+      }
+
+      .email-query {
+        max-width: 330px;
+        width: 100%;
+        height: 58px;
+        outline: solid 1px #e5e5e5;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+
+        @include flex-row;
+
+        #query {
+          width: 211px;
+          height: 52px;
+          border: none;
+        }
+
+        #query::placeholder {
+          color: $gray;
+          @include text(14px, 28px, 0.2px);
+          font-weight: 400;
+          padding-left: 15px;
+        }
+
+        #query:focus {
+          outline: 0;
+          outline-offset: 0;
+          @include text(14px, 24px, 0.2px);
+          font-weight: 400;
+
+          color: $textColor;
+          padding-left: 10px;
+        }
+
+        button {
+          width: 117px;
+          height: 58px;
+          background-color: $primaryColor;
+          color: $light-text-color;
+          border: solid 1px #e5e5e5;
+          @include text(14px, 28px, 0.2px);
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          cursor: pointer;
+        }
+      }
+
+      p {
+        margin: 0 auto;
+        @include text(12px, 28px, 0.2px);
+        font-weight: 400;
+        color: $gray;
+      }
+    }
+  }
+}
+
+//футер
+
+footer {
+  width: 100%;
+  background: linear-gradient(to right, #0072b5, #295c7a);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  @include flex-column;
+
+  div {
+    max-width: 1100px;
+    width: 100%;
+    p {
+      text-align: left;
+      margin: o auto;
+      @include text(14px, 24px, 0.2px);
+      font-weight: 700;
+      color: $light-text-color;
+    }
+  }
+}
+
+@media (min-width: 414px) and (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  header {
+    width: 100%;
+    @include flex-column;
+    .container-menu {
+      width: 100%;
+      background-color: #f7f7f7;
+
+      .label {
+        padding-left: 35px;
+        margin: 0;
+        margin-top: 7px;
+      }
+
+      .right-menu {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 45px;
+        margin: o auto;
+        .right {
+          display: block;
+          padding-left: 3px;
+          border: none;
+          margin: 0;
+          padding: 0;
+          background-color: #f7f7f7;
+        }
+
+        .icons {
+          .left {
+            a img {
+              margin: 0;
+              margin-top: 4px;
+            }
+          }
+        }
+      }
+    }
+    .container-hidden-menu {
+      width: 100%;
+
+      .hidden-menu {
+        width: 100%;
+        background-color: #f7f7f7;
+        margin: 0 auto;
+        list-style: none;
+        padding: 0;
+
+        @include flex-column;
+
+        li {
+          width: 100%;
+          padding-bottom: 30px;
+          display: flex;
+          justify-content: center;
+        }
+        li a {
+          text-decoration: none;
+          color: $second-text-color;
+          @include text(30px, 45px, 0.2px);
+          font-weight: 400;
+        }
+      }
+    }
+
+    .content-header {
+      width: 100%;
+      background-color: $fonGray;
+      padding: 0;
+      padding-top: 80px;
+      margin: 0;
+
+      h1 {
+        @include text(40px, 50px, 0.2px);
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-bottom: 40px;
+      }
+
+      .gray-text p {
+        @include text(20px, 30px, 0.2px);
+        padding: 0;
+        padding-left: 67px;
+        padding-right: 67px;
+        margin: 0;
+        margin-bottom: 40px;
+      }
+
+      .buttons {
+        @include flex-column;
+
+        .left {
+          margin-bottom: 35px;
+        }
+      }
+    }
+  }
+
+  .white-block {
+    width: 100%;
+    @include flex-column;
+    .container-white {
+      width: 100%;
+      @include flex-column;
+      padding-top: 75px;
+
+      h2 {
+        text-align: center;
+        padding: 0;
+        padding-left: 77px;
+        padding-right: 77px;
+        margin: 0;
+      }
+
+      p {
+        padding-left: 67px;
+        padding-right: 67px;
+      }
+
+      .container-blocks {
+        @include flex-column;
+        padding-left: 43px;
+        padding-right: 43px;
+
+        .block {
+          width: 100%;
+
+          .text {
+            padding: 0;
+            padding-top: 15px;
+          }
+
+          h5 {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .gray-one {
+    width: 100%;
+    .container-gray-one {
+      width: 100%;
+      .who {
+        width: 100%;
+        padding: 0;
+        padding-top: 98px;
+
+        h2 {
+          margin: 0;
+          padding: 0;
+        }
+
+        p {
+          padding-left: 104px;
+          padding-right: 104px;
+        }
+      }
+      .video-container {
+        width: 306px;
+        height: 442px;
+        overflow: hidden;
+        video {
+          padding-left: 54px;
+          padding-right: 54px;
+          height: 442px;
+        }
+
+        .play-stop {
+          width: 96px;
+          height: 96px;
+        }
+      }
+    }
+  }
+
+  .gray-two {
+    width: 100%;
+    .reviews {
+      h2 {
+        padding: 0;
+        padding-top: 75px;
+        padding-left: 74px;
+        padding-right: 65px;
+        text-align: center;
+      }
+
+      p {
+        padding: 0;
+        padding: 10px 83px 60px 92px;
+      }
+    }
+    .reviews-block {
+      @include flex-column;
+
+      .review-name {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .white-block-two {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    padding-top: 75px;
+    h2 {
+      text-align: center;
+      padding-left: 104px;
+      padding-right: 105px;
+      padding-top: 10px;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      padding-left: 87px;
+      padding-right: 88px;
+      padding-bottom: 45px;
+    }
+    .attorneys {
+      @include flex-column;
+      margin: 0;
+      padding: 0;
+
+      .block-attorney {
+        max-width: 100%;
+        margin: 0;
+        margin-bottom: 30px;
+
+        .name-attorney {
+          margin: 0;
+          padding: 0;
+          padding-top: 30px;
+        }
+
+        .social-networks {
+          margin: 0;
+          padding: 0;
+          padding-top: 6px;
+          padding-bottom: 32px;
+        }
+
+        .specialization {
+          margin: 0;
+          padding: 0;
+          padding-top: 5px;
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .form {
+    width: 100%;
+    .container-form {
+      width: 100%;
+      background-position: center;
+      padding-left: 61px;
+      padding-right: 67px;
+      background-color: #f3f3f3;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .feedback {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-top: 115px;
+        h5 {
+          font-family: "Martel", serif;
+          width: 100%;
+          text-align: left;
+          @include text(16px, 24px, 0.1px);
+          margin: 0;
+          padding: 0;
+        }
+
+        form {
+          width: 100%;
+          @include flex-column;
+
+          .form-select {
+            width: 100%;
+
+            .btn-form,
+            .btn-form1 {
+              width: 100%;
+              margin: 0;
+            }
+            .btn-form1 {
+              margin-top: 20px;
+            }
+
+            .lists-1 {
+              margin: 0;
+            }
+          }
+
+          .form-flex {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+
+            input {
+              width: 100%;
+              margin: 0;
+              margin-bottom: 20px;
+            }
+
+            textarea {
+              max-width: 100%;
+              min-width: 100%;
+              margin: 0;
+              margin-top: 20px;
+            }
+
+            .button-form {
+              width: 100%;
+              margin: 0;
+              margin-bottom: 106px;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom-form {
+      @include flex-column;
+
+      .left {
+        margin: 0;
+        padding: 0;
+        padding-left: 92px;
+        padding-right: 84px;
+        padding-top: 40px;
+      }
+
+      .right {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-left: 69px;
+        padding-right: 61px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+
+        .orange {
+          width: 100%;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .blue-block-two {
+    width: 100%;
+    .container-top {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 47px;
+      padding-bottom: 110px;
+
+      h3 {
+        margin: 0;
+      }
+      ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-top: 63px;
+        li a {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        li:first-child {
+          padding: 0;
+        }
+      }
+    }
+
+    hr {
+      display: none;
+    }
+
+    .container-bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      padding-left: 47px;
+
+      .block-info {
+        width: 100%;
+        margin-bottom: 30px;
+
+        h5 {
+          margin: 0;
+          margin-bottom: 20px;
+        }
+
+        .links {
+          margin: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      .block-query {
+        width: 100%;
+        padding-bottom: 70px;
+
+        h5 {
+          margin: 0;
+          margin-bottom: 20px;
+        }
+
+        .email-query {
+          width: 100%;
+          border: none;
+          outline: solid 1px $light-text-color;
+        }
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    div p {
+      text-align: center;
+    }
+  }
+}
